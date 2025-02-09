@@ -18,7 +18,7 @@ public class Main {
 
             // Create a statement
             Statement stmt = conn.createStatement();
-            String sql = "SELECT * FROM doctors";
+            String sql = "SELECT * FRO.ljdnf;lsanflaskM doctors";
 
             // Execute query
             ResultSet rs = stmt.executeQuery(sql);
