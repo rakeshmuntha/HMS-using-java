@@ -17,7 +17,7 @@ public class Main {
             System.out.println("Connected to MySQL successfully!");
 
             // Create a statement
-            Statement stmt = conn.createStatement();jfljf;djf;safj;l
+            Statement stmt = conn.createStatement();
             String sql = "SELECT * FROM doctors";
 
             // Execute query
