@@ -1,9 +1,6 @@
 package HMS;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.Scanner;
 
 public class HosiptalManagementSystem
@@ -19,9 +16,6 @@ public class HosiptalManagementSystem
         try
         {
             Class.forName("com.mysql.cj.jdbc.Driver");
-
-
-
         }
         catch (ClassNotFoundException e)
         {
@@ -49,14 +43,26 @@ public class HosiptalManagementSystem
                     case 1:
                         //add patient
                         patient.addPatient();
+                        System.out.println();
+                        break;
                     case 2:
-                        //add patient
+                        //view patient details
                         patient.viewPatients();
+                        System.out.println();
+                        break;
+
                     case 3:
-                        //add patient
+                        //view doctors
                         doctor.viewDoctors();
+                        System.out.println();
+                        break;
+
                     case 4:
-                        //add patient
+                        //check availability of doctors
+                        bookAppointment(patient,doctor,connection,scanner);
+                        System.out.println();
+                        break;
+
 
                     case 5:
                         //add patient
@@ -64,14 +70,10 @@ public class HosiptalManagementSystem
 
                     default:
                         System.out.println("Enter valid choice...");
-
-
+                        break;
                 }
 
-
-
             }
-
 
 
         }
@@ -80,20 +82,20 @@ public class HosiptalManagementSystem
             e.printStackTrace();
         }
     }
-    public void bookAppointment(Patient patient, Doctor doctor, Connection connection, Scanner scanner)
+    public static void bookAppointment(Patient patient, Doctor doctor, Connection connection, Scanner scanner)
     {
         System.out.println("Enter Patient ID : ");
         int patientId = scanner.nextInt();
         System.out.println("Enter Doctor ID : ");
         int doctorID = scanner.nextInt();
         System.out.println("Enter Appointment Date (YYYY-MM-DD) : ");
-        String appointmentDate = scanner.nextLine();
+        String appointmentDate = scanner.next();
 
         if(patient.getPatientById(patientId) && doctor.getDoctorById(doctorID))
         {
-            if(checkavail(doctorID,appointmentDate))
+            if(checkavail(doctorID,appointmentDate,connection))
             {
-                String appquery = "insert into appointments(patiend_id,doctor_id,appointment_date) values (?,?,?)";
+                String appquery = "insert into appointments(patient_id,doctor_id,appointment_date) values (?,?,?)";
                 try
                 {
                     PreparedStatement preparedStatement = connection.prepareStatement(appquery);
@@ -125,13 +127,27 @@ public class HosiptalManagementSystem
 
 
     }
-    public boolean checkavail(int doctorID,String appointmentDate,Connection connection)
+    public static boolean checkavail(int doctorID,String appointmentDate,Connection connection)
 
     {
-        String qurey = "select count(*) from doctors where doctor_id = ? and appointment_date = ?";
-
-
-
-
+        String qurey = "select count(*) from appointments where doctor_id = ? and appointment_date = ?";
+        try
+        {
+            PreparedStatement preparedStatement = connection.prepareStatement(qurey);
+            preparedStatement.setInt(1,doctorID);
+            preparedStatement.setString(2,appointmentDate);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if(resultSet.next())
+            {
+                int cnt = resultSet.getInt(1);
+                if(cnt == 0) return true;
+                else return false;
+            }
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+        return false;
     }
 }

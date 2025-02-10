@@ -16,11 +16,11 @@ public class Patient
     public void addPatient()
     {
         System.out.print("Enter Patient Name : ");
-        String name = scanner.nextLine();
+        String name = scanner.next();
         System.out.print("Enter Patient Age : ");
         int age = scanner.nextInt();
         System.out.print("Enter Patient Gender : ");
-        String gender = scanner.nextLine();
+        String gender = scanner.next();
         try
         {
             String query = "insert into patients(name,age,gender) values(?,?,?)";
@@ -56,7 +56,7 @@ public class Patient
                 String name = rs.getString("name");
                 int age = rs.getInt("age");
                 String gender = rs.getString("gender");
-                System.out.printf("|%-14s|%-18s|%-9s|%-12s|\n",id,name,age,gender);
+                System.out.printf("| %-12s | %-16s | %-7s | %-10s |\n",id,name,age,gender);
                 System.out.println("+--------------+------------------+---------+------------+");
 
             }

@@ -15,7 +15,7 @@ public class Doctor
 
     public void viewDoctors()
     {
-        String query = "select * from patients";
+        String query = "select * from doctors";
         try
         {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
@@ -29,7 +29,7 @@ public class Doctor
                 int id = rs.getInt("id");
                 String name = rs.getString("name");
                 String specialization = rs.getString("specialization");
-                System.out.printf("|%-14s|%-18s|%-22s|",id,name,specialization);
+                System.out.printf("| %-12s | %-16s | %-20s |\n",id,name,specialization);
                 System.out.println("+--------------+------------------+----------------------+");
 
             }
