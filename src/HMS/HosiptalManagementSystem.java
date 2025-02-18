@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class HosiptalManagementSystem
 {
+    // /usr/local/mysql/bin/mysql -u root -p
     private static final String url = "jdbc:mysql://localhost:3306/HMS";
 
     private static final String username = "root";
