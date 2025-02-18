@@ -33,6 +33,8 @@ public class Main {
             conn.close();
         } catch (SQLException e) {
             e.printStackTrace();
+            hi this is rakesh
+                
         }
     }
 }
