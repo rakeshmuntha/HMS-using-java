@@ -8,43 +8,37 @@ Prescripto is a responsive web application built using React that allows patient
 
 ### Patient Management
 
-Register new patients with essential details such as name, age, contact, and medical history.
-
-Retrieve patient details for reference and treatment history.
+* Register new patients with essential details such as name, age, contact, and medical history.
+* Retrieve patient details for reference and treatment history.
 
 ### Doctor Management
 
-Add, update, and manage doctor profiles with their specializations and contact details.
-
-Displays doctor availability to facilitate easy appointment scheduling.
+* Add, update, and manage doctor profiles with their specializations and contact details.
+* Displays doctor availability to facilitate easy appointment scheduling.
 
 ### Appointment Scheduling
 
-Book, modify, and cancel appointments.
-
-Ensures accurate doctor availability and efficient patient scheduling.
+* Book, modify, and cancel appointments.
+* Ensures accurate doctor availability and efficient patient scheduling.
 
 ### Prescription Management
 
-Generate and manage prescriptions for patients directly linked to their records.
-
-Ensures secure storage of prescription details for future reference.
+* Generate and manage prescriptions for patients directly linked to their records.
+* Ensures secure storage of prescription details for future reference.
 
 ### Database Integration
 
-Utilizes MySQL with JDBC for data storage and retrieval.
-
-CRUD (Create, Read, Update, Delete) operations for seamless data management.
+* Utilizes MySQL with JDBC for data storage and retrieval.
+* CRUD (Create, Read, Update, Delete) operations for seamless data management.
 
 ### User-Friendly Interface
 
-Developed a React-based web interface for intuitive navigation and enhanced user experience.
-
-Clear prompts and instructions ensure ease of use for non-technical users.
+* Developed a React-based web interface for intuitive navigation and enhanced user experience.
+* Clear prompts and instructions ensure ease of use for non-technical users.
 
 ### Error Handling
 
-Implemented robust exception handling to manage invalid inputs, database connection failures, and other runtime issues.
+* Implemented robust exception handling to manage invalid inputs, database connection failures, and other runtime issues.
 
 ## Technologies Used
 
@@ -63,15 +57,20 @@ IntelliJ IDEA (IDE for development)
 Introduce features like patient billing, inventory management, and staff management.
 
 ## Setup Instructions
+## Installation
 
-Install IntelliJ IDEA or any preferred Java IDE.
+To run the project locally, follow these steps:
 
-Set up a MySQL database and create the required tables.
+1. **Clone the repository**:
+   
+```
+git clone https://github.com/rakeshmuntha/women-safety-on-tweets-using-ML
+```
 
-Configure your JDBC connection details in the project.
+2. Install IntelliJ IDEA or any preferred Java IDE.
 
-Run the back-end Java application and the front-end React application to interact with the system.
+3. Set up a MySQL database and create the required tables.
 
-For further improvements or troubleshooting, feel free to reach out!
+4. Configure your JDBC connection details in the project.
 
-
+5. Run the back-end Java application and the front-end React application to interact with the system.
